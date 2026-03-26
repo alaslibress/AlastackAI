@@ -3,7 +3,7 @@
 # ==============================================================================
 # AlastackAI - Universal AI Environment Setup Script (Agents Team Lite)
 # Autor: @alaslibress
-# Descripción: Automatiza la creacion de Worktrees, inyeccion de Skills base,
+# Descripcion: Automatiza la creacion de Worktrees, inyeccion de Skills base,
 #              generacion de Engram global, CLI GGA y perfiles de Agentes.
 # ==============================================================================
 
@@ -35,7 +35,6 @@ crear_worktree() {
     fi
 }
 
-# Estructura generica aplicable a casi cualquier proyecto moderno
 crear_worktree "backend" "dev/backend"
 crear_worktree "frontend" "dev/frontend"
 crear_worktree "infra" "dev/infra"
@@ -85,14 +84,12 @@ echo "  -> engram.md creado en la raiz. (Recuerda editarlo con la vision de tu p
 
 echo -e "\n${BLUE}Paso 4: Desplegando Matriz 'Agents Team Lite'...${NC}"
 
-# Agente 0: Orchestrator (Raiz)
 inyectar_archivo "CLAUDE.md" "\
 # ROL: AGENTE 0 (Orchestrator)
 Eres el Director de Orquesta de este proyecto bajo el estandar AlastackAI.
 Tu mision: Planificar la arquitectura global y coordinar a los demas agentes. No escribas codigo de implementacion directa.
 Siempre lee \`engram.md\` primero para entender el contexto de negocio."
 
-# Agente 1: Backend Implementer
 inyectar_archivo "backend/CLAUDE.md" "\
 # ROL: AGENTE 1 (Backend Implementer)
 Eres el especialista en logica de servidor y bases de datos.
@@ -101,7 +98,6 @@ Flujo de trabajo:
 2. Genera o lee un \`PLAN.md\` antes de programar.
 3. Aplica los principios de Clean Architecture definidos en tus skills locales."
 
-# Agente 2: Frontend Implementer
 inyectar_archivo "frontend/CLAUDE.md" "\
 # ROL: AGENTE 2 (Frontend Implementer)
 Eres el especialista en interfaces de usuario y experiencia de cliente.
@@ -110,7 +106,6 @@ Flujo de trabajo:
 2. Genera o lee un \`PLAN.md\` antes de programar.
 3. Construye componentes robustos y tipados siguiendo tus skills locales."
 
-# Agente 3: DevOps / Infra Architect
 inyectar_archivo "infra/CLAUDE.md" "\
 # ROL: AGENTE 3 (Infra / DevOps)
 Eres el especialista en despliegues, contenedores y seguridad en la nube.
@@ -121,11 +116,11 @@ Flujo de trabajo:
 
 echo "  -> Identidades de agentes asignadas a la estructura."
 
-echo -e "\n${BLUE}Paso 5: Compilando el CLI 'GGA' (Gentleman Global Assistant)...${NC}"
+echo -e "\n${BLUE}Paso 5: Compilando el CLI 'GGA' (Gentleman Guardian Angel)...${NC}"
 mkdir -p .bin
 cat << 'EOF' > .bin/gga
 #!/bin/bash
-# AlastackAI - Global AI CLI Wrapper
+# AlastackAI - GGA (Gentleman Guardian Angel) CLI Wrapper
 CMD=$1
 shift
 
@@ -136,7 +131,7 @@ elif [ "$CMD" == "do" ] || [ "$CMD" == "code" ]; then
     echo "[AlastackAI] Invocando Modo Ejecucion (Implementacion)..."
     claude --model claude-3-5-sonnet-20241022 "$@"
 else
-    echo "Uso de GGA (AlastackAI):"
+    echo "Uso de GGA (Gentleman Guardian Angel):"
     echo "  gga plan [prompt] -> Inicia el modelo pensante para crear un PLAN.md."
     echo "  gga do [prompt]   -> Inicia el modelo ejecutor para escribir el codigo."
     echo "  gga               -> Abre la terminal interactiva de Claude Code."

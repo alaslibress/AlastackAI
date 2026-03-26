@@ -1,8 +1,8 @@
 # ==============================================================================
 # AlastackAI - Universal AI Environment Setup Script (Agents Team Lite) - WINDOWS
 # Autor: @alaslibress
-# Descripción: Automatiza la creación de Worktrees, inyección de Skills base,
-#              generación de Engram global, CLI GGA y perfiles de Agentes.
+# Descripcion: Automatiza la creacion de Worktrees, inyeccion de Skills base,
+#              generacion de Engram global, CLI GGA y perfiles de Agentes.
 # ==============================================================================
 
 $ErrorActionPreference = "Stop"
@@ -13,7 +13,7 @@ Write-Host "==================================================================" 
 Write-Host ""
 
 if (!(Test-Path ".git")) {
-    Write-Host "[ERROR] Este script debe ejecutarse en la raíz de un repositorio Git inicializado." -ForegroundColor Red
+    Write-Host "[ERROR] Este script debe ejecutarse en la raiz de un repositorio Git inicializado." -ForegroundColor Red
     exit 1
 }
 
@@ -29,12 +29,11 @@ function Crear-Worktree {
     }
 }
 
-# Estructura genérica aplicable a casi cualquier proyecto moderno
 Crear-Worktree "backend" "dev/backend"
 Crear-Worktree "frontend" "dev/frontend"
 Crear-Worktree "infra" "dev/infra"
 
-Write-Host "`nPaso 2: Inyectando Skills Base (Mejores Prácticas Genéricas)..." -ForegroundColor Cyan
+Write-Host "`nPaso 2: Inyectando Skills Base (Mejores Practicas Genericas)..." -ForegroundColor Cyan
 function Inyectar-Archivo {
     param([string]$path, [string]$content)
     $dir = Split-Path $path
@@ -77,7 +76,7 @@ Write-Host "`nPaso 3: Forjando el Engram (Memoria Global del Proyecto)..." -Fore
 $engramContent = @"
 # AlastackAI - Global Engram Memory
 
-**Project Vision:** [DEFINE TU PROYECTO AQUI - Reemplaza este texto con el objetivo principal de tu aplicación]
+**Project Vision:** [DEFINE TU PROYECTO AQUI - Reemplaza este texto con el objetivo principal de tu aplicacion]
 
 **Core Directives for all Agents:**
 1. Maintain strict domain isolation. Do not modify files outside your designated worktree.
@@ -85,21 +84,21 @@ $engramContent = @"
 3. Prioritize modularity, security, and clean code principles above all else.
 "@
 Inyectar-Archivo "engram.md" $engramContent
-Write-Host "  -> engram.md creado en la raíz. (Recuerda editarlo con la visión de tu proyecto)."
+Write-Host "  -> engram.md creado en la raiz. (Recuerda editarlo con la vision de tu proyecto)."
 
 Write-Host "`nPaso 4: Desplegando Matriz 'Agents Team Lite'..." -ForegroundColor Cyan
 
 $agent0 = @"
 # ROL: AGENTE 0 (Orchestrator)
-Eres el Director de Orquesta de este proyecto bajo el estándar AlastackAI.
-Tu misión: Planificar la arquitectura global y coordinar a los demás agentes. No escribas código de implementación directa.
+Eres el Director de Orquesta de este proyecto bajo el estandar AlastackAI.
+Tu mision: Planificar la arquitectura global y coordinar a los demas agentes. No escribas codigo de implementacion directa.
 Siempre lee `engram.md` primero para entender el contexto de negocio.
 "@
 Inyectar-Archivo "CLAUDE.md" $agent0
 
 $agent1 = @"
 # ROL: AGENTE 1 (Backend Implementer)
-Eres el especialista en lógica de servidor y bases de datos.
+Eres el especialista en logica de servidor y bases de datos.
 Flujo de trabajo:
 1. Lee `..\engram.md` para contexto global.
 2. Genera o lee un `PLAN.md` antes de programar.
@@ -123,13 +122,13 @@ Eres el especialista en despliegues, contenedores y seguridad en la nube.
 Flujo de trabajo:
 1. Lee `..\engram.md` para contexto global.
 2. Diseña manifiestos (Docker, Kubernetes, Terraform) seguros y escalables.
-3. Aplica políticas de Zero Trust y gestión segura de secretos.
+3. Aplica politicas de Zero Trust y gestion segura de secretos.
 "@
 Inyectar-Archivo "infra\CLAUDE.md" $agent3
 
 Write-Host "  -> Identidades de agentes asignadas a la estructura."
 
-Write-Host "`nPaso 5: Compilando el CLI 'GGA' (Gentleman Global Assistant) para Windows..." -ForegroundColor Cyan
+Write-Host "`nPaso 5: Compilando el CLI 'GGA' (Gentleman Guardian Angel) para Windows..." -ForegroundColor Cyan
 if (!(Test-Path ".bin")) { New-Item -ItemType Directory -Force -Path ".bin" | Out-Null }
 
 $ggaBat = @"
@@ -162,7 +161,7 @@ claude --model claude-3-5-sonnet-20241022 %ARGS%
 goto end
 
 :default
-echo Uso de GGA (AlastackAI):
+echo Uso de GGA (Gentleman Guardian Angel):
 echo   gga plan [prompt] -^> Inicia el modelo pensante para crear un PLAN.md.
 echo   gga do [prompt]   -^> Inicia el modelo ejecutor para escribir el codigo.
 echo   gga               -^> Abre la terminal interactiva de Claude Code.
@@ -177,8 +176,8 @@ if "%CMD%"=="" (
 Inyectar-Archivo ".bin\gga.bat" $ggaBat
 Write-Host "  -> CLI 'gga.bat' configurado."
 
-Write-Host "`nPaso 6: Activación del Entorno AlastackAI" -ForegroundColor Cyan
+Write-Host "`nPaso 6: Activacion del Entorno AlastackAI" -ForegroundColor Cyan
 Write-Host "Ejecuta este comando en tu terminal actual de PowerShell para activar el CLI:" -ForegroundColor Yellow
 Write-Host "`$env:PATH = `"`$PWD\.bin;`$env:PATH`"" -ForegroundColor Green
 Write-Host ""
-Write-Host "El ecosistema AlastackAI está listo. Modifica engram.md con los detalles de tu nuevo proyecto y a construir." -ForegroundColor Green
+Write-Host "El ecosistema AlastackAI esta listo. Modifica engram.md con los detalles de tu nuevo proyecto y a construir." -ForegroundColor Green
