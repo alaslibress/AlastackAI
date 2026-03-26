@@ -1,3 +1,5 @@
+<img src="AlastackAI.png" alt="AlastackAI" width="600"/>
+
 # AlastackAI: Universal AI Environment Setup
 
 **AlastackAI** es un *boilerplate* automatizado diseñado por [@alaslibress] para desplegar entornos de desarrollo asistidos por Inteligencia Artificial en segundos. Implementa la metodología **Agents Team Lite**, transformando un repositorio vacío en una fábrica de software estructurada, segura y operada por múltiples agentes de IA especializados (Claude Code).
