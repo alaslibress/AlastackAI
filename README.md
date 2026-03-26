@@ -10,11 +10,11 @@ Cuando desarrollas proyectos complejos con IA, los asistentes tienden a mezclar 
 
 Al ejecutar el script de inicialización, el sistema automatiza la creación de:
 
-1. **Aislamiento Físico (Git Worktrees):** Divide tu proyecto en laboratorios independientes (`/backend`, `/frontend`, `/infra`). Los agentes de un dominio no pueden romper el código de otro.
+1. **Aislamiento Físico (Git Worktrees):** Divide tu proyecto en laboratorios independientes (`/backend`, `/frontend`, `/infra`). Los agentes de un dominio no pueden alterar el código de otro.
 2. **Memoria Global (`engram.md`):** Crea un "hipocampo" centralizado donde defines la visión y reglas de negocio de tu proyecto para que todos los agentes compartan el mismo objetivo.
 3. **Inyección de Skills de Nivel Senior:** Despliega automáticamente directrices de industria en carpetas ocultas (`.claude/skills/`). La IA programará usando Clean Architecture, TypeScript estricto y políticas Zero Trust por defecto.
 4. **Identidades Multi-Agente:** Configura archivos `CLAUDE.md` locales para que la IA asuma roles específicos según la carpeta en la que te encuentres (por ejemplo, *Frontend Implementer* o *DevOps Architect*).
-5. **GGA CLI (Global Assistant Wrapper):** Instala un comando de terminal ligero (`gga`) para orquestar los modos "Pensador" (Opus) y "Ejecutor" (Sonnet) sin tener que recordar comandos complejos.
+5. **GGA CLI (Gentleman Guardian Angel):** Instala un comando de terminal ligero (`gga`) para orquestar los modos "Pensador" (Opus) y "Ejecutor" (Sonnet) sin tener que recordar comandos complejos, actuando como tu ángel guardián en la terminal.
 
 ---
 
@@ -111,4 +111,4 @@ El agente leerá el plan aprobado y escribirá el código de producción respeta
 gga
 ```
 
-Abre la consola estándar de Claude Code manteniendo el contexto de AlastackAI.
+Abre la consola estándar de Claude Code manteniendo el contexto del Gentleman Guardian Angel.
